@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://servs/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servs/">
+
+<xs:element name="AddBook" type="tns:AddBook" />
+
+<xs:element name="AddBookResponse" type="tns:AddBookResponse" />
+
+<xs:element name="GetBookInfo" type="tns:GetBookInfo" />
+
+<xs:element name="GetBookInfoResponse" type="tns:GetBookInfoResponse" />
+
+<xs:element name="GetBooks" type="tns:GetBooks" />
+
+<xs:element name="GetBooksResponse" type="tns:GetBooksResponse" />
+
+<xs:element name="author" type="tns:author" />
+
+<xs:element name="book" type="tns:book" />
+
+<xs:complexType name="AddBook">
+<xs:sequence>
+<xs:element name="Book" type="tns:book" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="book">
+<xs:sequence>
+<xs:element name="author" type="tns:author" minOccurs="0" />
+<xs:element name="id" type="xs:int" />
+<xs:element name="publisher" type="xs:string" minOccurs="0" />
+<xs:element name="title" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="author">
+<xs:sequence>
+<xs:element name="fn" type="xs:string" minOccurs="0" />
+<xs:element name="ln" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AddBookResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetBooks">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="GetBooksResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:book" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetBookInfo">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetBookInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:book" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
